@@ -1,0 +1,27 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Aluno {
+  id        Int                 @id @default(autoincrement())
+  nome      String
+  avatar    String?
+  pontos    Int                 @default(0)
+  progresso ProgressoLeitura[]
+  criadoEm  DateTime            @default(now())
+}
+
+model ProgressoLeitura {
+  id       Int    @id @default(autoincrement())
+  letra    String
+  visto    Boolean @default(false)
+  alunoId  Int
+  aluno    Aluno  @relation(fields: [alunoId], references: [id])
+
+  @@unique([alunoId, letra], name: "aluno_letra_unique")
+}
