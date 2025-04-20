@@ -8,12 +8,20 @@ datasource db {
 }
 
 model Aluno {
-  id        Int                 @id @default(autoincrement())
-  nome      String
-  avatar    String?
-  pontos    Int                 @default(0)
-  progresso ProgressoLeitura[]
-  criadoEm  DateTime            @default(now())
+  id              Int      @id @default(autoincrement())
+  nome            String
+  data_nascimento DateTime
+  serie           String
+  responsaveis    String
+  login           String
+  email           String
+  created_at      DateTime @default(now())
+  updated_at      DateTime @default(now())
+  Atividade       Atividade[]
+  Avaliacao       Avaliacao[]
+  avatar          String?
+  pontos          Int      @default(0)
+  progresso       ProgressoLeitura[]
 }
 
 model ProgressoLeitura {
