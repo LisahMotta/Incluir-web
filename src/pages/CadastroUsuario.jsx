@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { cadastrarAluno } from '../services/alunoService';
 import fundo from '../assets/fundo.png';
+import SelecionarAvatar from '../components/SelecionarAvatar';
 
 function CadastroAluno() {
   const navigate = useNavigate();
@@ -13,7 +14,8 @@ function CadastroAluno() {
     email: '',
     login: '',
     senha: '',
-    confirmarSenha: ''
+    confirmarSenha: '',
+    avatarId: null
   });
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -23,6 +25,10 @@ function CadastroAluno() {
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
     setError('');
+  };
+
+  const handleAvatarSelect = (avatarId) => {
+    setFormData({ ...formData, avatarId });
   };
 
   const handleSubmit = async (e) => {
@@ -50,12 +56,16 @@ function CadastroAluno() {
         return;
       }
 
+      if (!formData.avatarId) {
+        setError('Por favor, selecione um avatar');
+        return;
+      }
+
       const result = await cadastrarAluno(formData);
       
       if (result.success) {
         setSuccess(true);
         setSuccessMessage(result.message);
-        // Não navegar automaticamente, aguardar confirmação de email
       }
     } catch (error) {
       console.error('Erro no cadastro:', error);
@@ -316,6 +326,11 @@ function CadastroAluno() {
               disabled={loading}
             />
           </label>
+
+          <SelecionarAvatar 
+            onSelect={handleAvatarSelect} 
+            selectedAvatar={formData.avatarId} 
+          />
         </div>
 
         <button 

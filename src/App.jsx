@@ -6,18 +6,22 @@ import Ranking from './pages/Ranking.jsx';
 import CadastroUsuario from './pages/CadastroUsuario';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
+import SelecionarAvatarPage from './pages/SelecionarAvatarPage';
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/leitura" element={<Leitura />} />
-      <Route path="/cadastrar" element={<CadastrarAluno />} />
-      <Route path="/ranking" element={<Ranking />} />
-      <Route path="/cadastro" element={<CadastroUsuario />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/dashboard" element={<Dashboard />} />
-    </Routes>
+    <div className="App">
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/leitura" element={<Leitura />} />
+        <Route path="/cadastrar" element={<CadastrarAluno />} />
+        <Route path="/ranking" element={<Ranking />} />
+        <Route path="/cadastro" element={<CadastroUsuario />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/avatar" element={<SelecionarAvatarPage />} />
+      </Routes>
+    </div>
   );
 }
 
