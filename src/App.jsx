@@ -1,27 +1,26 @@
+// App.jsx - Componente principal da aplicação
 import { Routes, Route } from 'react-router-dom';
-import Home from "./pages/Home.jsx";
-import Leitura from "./pages/Leitura.jsx";
-import CadastrarAluno from "./pages/CadastrarAluno.jsx";
-import Ranking from './pages/Ranking.jsx';
+import Home from './pages/Home';
 import CadastroUsuario from './pages/CadastroUsuario';
+import Alfabeto from './pages/Alfabeto';
+import Ranking from './pages/Ranking';
 import Login from './pages/Login';
+import Parlendas from "./pages/Parlendas";
 import Dashboard from './pages/Dashboard';
-import SelecionarAvatarPage from './pages/SelecionarAvatarPage';
+import TelaLeitura from './pages/TelaLeitura';
 
 function App() {
   return (
-    <div className="App">
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/leitura" element={<Leitura />} />
-        <Route path="/cadastrar" element={<CadastrarAluno />} />
-        <Route path="/ranking" element={<Ranking />} />
-        <Route path="/cadastro" element={<CadastroUsuario />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/avatar" element={<SelecionarAvatarPage />} />
-      </Routes>
-    </div>
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/cadastro" element={<CadastroUsuario />} />
+      <Route path="/alfabeto" element={<Alfabeto />} />
+      <Route path="/ranking" element={<Ranking />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/parlendas" element={<Parlendas />} />
+      <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/leitura" element={<TelaLeitura />} />  
+    </Routes>
   );
 }
 

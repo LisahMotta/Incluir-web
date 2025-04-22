@@ -1,0 +1,56 @@
+[
+    {
+      "id": "parlenda001",
+      "titulo": "Hoje é domingo",
+      "serie": "1º Ano",
+      "tipo": "Parlenda",
+      "texto": "Hoje é domingo\nPede cachimbo\nO cachimbo é de barro\nBate no jarro\nO jarro é de ouro\nBate no touro\nO touro é valente\nCorre atrás da gente\nA gente é fraco\nCai no buraco\nO buraco é fundo\nAcabou-se o mundo.",
+      "audio": "/audios/parlendas/parlenda001.mp3",
+      "imagem": "/imagens/parlendas/parlenda001.png"
+    },
+    {
+      "id": "parlenda002",
+      "titulo": "A barata diz que tem",
+      "serie": "1º Ano",
+      "tipo": "Parlenda",
+      "texto": "A barata diz que tem sete saias de filó\nÉ mentira da barata\nEla tem é uma só\nA barata diz que tem um anel de formatura\nÉ mentira da barata\nEla tem é casca dura\nA barata diz que tem um sapato de fivela\nÉ mentira da barata\nO sapato é da mãe dela\nA barata diz que tem um vestido de babado\nÉ mentira da barata\nO vestido tá rasgado\nA barata diz que tem um perfume da Avon\nÉ mentira da barata\nEla usa Detefon.",
+      "audio": "/audios/parlendas/parlenda002.mp3",
+      "imagem": "/imagens/parlendas/parlenda002.png"
+    },
+    {      "id": "parlenda003",
+      "titulo": "Corre cutia",
+      "serie": "1º Ano",
+      "tipo": "Parlenda",
+      "texto": "Corre cutia\nNa casa da tia\nCorre cipó\nNa casa da avó\nLencinho na mão\nCaiu no chão\nMoça bonita do meu coração\nUm,Dois,Três!",
+      "audio": "/audios/parlendas/parlenda003.mp3",
+      "imagem": "/imagens/parlendas/parlenda003.png"
+    },
+    {
+        "id": "parlenda004",
+        "titulo": "Lá em cima do piano",
+        "serie": "1º Ano",
+        "tipo": "Parlenda",
+        "texto": "Lá em cima do piano\nTem um copo de veneno\nQuem bebeu morreu\nO culpado não fui eu.",
+        "audio": "/audios/parlendas/parlenda004.mp3",
+        "imagem": "/imagens/parlendas/parlenda004.png"
+    },
+    {
+        "id": "parlenda005",
+        "titulo": "O sapo não lava o pé",
+        "serie": "1º Ano",
+        "tipo": "Parlenda",
+        "texto": "O sapo não lava o pé\nNão lava porque não quer\nEle mora lá na lagoa\nE não lava o pé\nPorque não quer\nMas que chulé!",
+        "audio": "/audios/parlendas/parlenda005.mp3",
+        "imagem": "/imagens/parlendas/parlenda005.png"
+    },
+    {
+        "id": "parlenda006",
+        "titulo": "Papagaio Louro",
+        "serie": "1º Ano",
+        "tipo": "Parlenda",
+        "texto": "Papagaio louro do bico dourado\nLeva essa cartinha para meu namorado\nSe tiver dormindo\nBate na porta\nSe tiver acordado\nDeixe o recado.",
+        "audio": "/audios/parlendas/parlenda006.mp3",
+        "imagem": "/imagens/parlendas/parlenda006.png"
+    }
+  ]
+  

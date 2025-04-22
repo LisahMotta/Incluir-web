@@ -53,6 +53,7 @@ const avatares = {
 function Dashboard() {
   const navigate = useNavigate();
   const [avatarSelecionado, setAvatarSelecionado] = useState(null);
+  const [mostrarSubmenu, setMostrarSubmenu] = useState(false);
 
   useEffect(() => {
     // Carrega o avatar salvo do localStorage
@@ -127,6 +128,27 @@ function Dashboard() {
     objectFit: 'cover'
   };
 
+  const estiloSubmenu = {
+    position: 'absolute',
+    top: '100%',
+    left: '0',
+    width: '100%',
+    backgroundColor: 'rgba(255, 255, 255, 0.95)',
+    borderRadius: '0 0 20px 20px',
+    padding: '1rem',
+    boxShadow: '0 4px 8px rgba(0,0,0,0.2)',
+    zIndex: 1,
+  };
+
+  const estiloSubmenuItem = {
+    padding: '0.8rem',
+    cursor: 'pointer',
+    transition: 'all 0.3s ease',
+    '&:hover': {
+      backgroundColor: 'rgba(255, 127, 50, 0.1)',
+    }
+  };
+
   return (
     <div style={estiloContainer}>
       <div style={{
@@ -163,27 +185,31 @@ function Dashboard() {
       
       <div style={estiloGrid}>
         <div 
-          style={estiloCard}
-          onClick={() => navigate('/leitura')}
+          style={{
+            ...estiloCard,
+            position: 'relative'
+          }}
+          onMouseEnter={() => setMostrarSubmenu(true)}
+          onMouseLeave={() => setMostrarSubmenu(false)}
         >
           <div style={estiloIcone}>📚</div>
           <div style={estiloTexto}>Leitura</div>
-        </div>
-
-        <div 
-          style={estiloCard}
-          onClick={() => navigate('/jogos')}
-        >
-          <div style={estiloIcone}>🎮</div>
-          <div style={estiloTexto}>Jogos</div>
-        </div>
-
-        <div 
-          style={estiloCard}
-          onClick={() => navigate('/avatar')}
-        >
-          <div style={estiloIcone}>👤</div>
-          <div style={estiloTexto}>Meu Avatar</div>
+          {mostrarSubmenu && (
+            <div style={estiloSubmenu}>
+              <div 
+                style={estiloSubmenuItem}
+                onClick={() => navigate('/leitura')}
+              >
+                Alfabeto
+              </div>
+              <div 
+                style={estiloSubmenuItem}
+                onClick={() => navigate('/parlendas')}
+              >
+                Parlendas
+              </div>
+            </div>
+          )}
         </div>
 
         <div 
@@ -192,6 +218,14 @@ function Dashboard() {
         >
           <div style={estiloIcone}>🏆</div>
           <div style={estiloTexto}>Ranking</div>
+        </div>
+
+        <div 
+          style={estiloCard}
+          onClick={() => navigate('/')}
+        >
+          <div style={estiloIcone}>🏠</div>
+          <div style={estiloTexto}>Início</div>
         </div>
       </div>
     </div>
