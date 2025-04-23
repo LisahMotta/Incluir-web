@@ -19,7 +19,7 @@ function Dashboard() {
 
   const estiloGrid = {
     display: 'grid',
-    gridTemplateColumns: 'repeat(3, 1fr)',
+    gridTemplateColumns: 'repeat(2, 1fr)',
     gap: '2rem',
     maxWidth: '800px',
     width: '100%'
@@ -116,6 +116,14 @@ function Dashboard() {
         >
           <div style={estiloIcone}>🏆</div>
           <div style={estiloTexto}>Ranking</div>
+        </div>
+
+        <div 
+          style={estiloCard}
+          onClick={() => navigate('/avatar')}
+        >
+          <div style={estiloIcone}>👤</div>
+          <div style={estiloTexto}>Criar Avatar</div>
         </div>
 
         <div 
