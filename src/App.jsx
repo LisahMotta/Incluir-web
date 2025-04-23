@@ -2,7 +2,7 @@
 import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import CadastroUsuario from './pages/CadastroUsuario';
-import Alfabeto from './pages/Alfabeto';
+import Leitura from './pages/Leitura';
 import Ranking from './pages/Ranking';
 import Login from './pages/Login';
 import Parlendas from "./pages/Parlendas";
@@ -14,7 +14,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/cadastro" element={<CadastroUsuario />} />
-      <Route path="/alfabeto" element={<Alfabeto />} />
+      <Route path="/alfabeto" element={<Leitura />} />
       <Route path="/ranking" element={<Ranking />} />
       <Route path="/login" element={<Login />} />
       <Route path="/parlendas" element={<Parlendas />} />
