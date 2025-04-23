@@ -1,10 +1,54 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import avatares from '../data/avatares';
+import cachorro from '../avatar/animais/cachorro.png';
+import gato from '../avatar/animais/gato.png';
+import esquilo from '../avatar/animais/esquilo.png';
+import elefante from '../avatar/animais/elefante.png';
+import macaco from '../avatar/animais/macaco.png';
+import panda from '../avatar/animais/panda.png';
+import trex from '../avatar/animais/trex.png';
+import tigre from '../avatar/animais/tigre.png';
+import leao from '../avatar/animais/leao.png';
+import pterodactilo from '../avatar/animais/pterodactilo.png';
+import triceratops from '../avatar/animais/triceratops.png';
+import unicornio from '../avatar/animais/unicornio.png';
+import menina1 from '../avatar/menina/menina1.png';
+import menina2 from '../avatar/menina/menina2.png';
+import menino1 from '../avatar/menino/menino1.png';
+import menino2 from '../avatar/menino/menino2.png';
+import bruxa from '../avatar/seresmagicos/bruxa.png';
+import bruxo from '../avatar/seresmagicos/bruxo.png';
+import fada from '../avatar/seresmagicos/fada.png';
+import fado from '../avatar/seresmagicos/fado.png';
+import heroi from '../avatar/seresmagicos/heroi.png';
+import heroina from '../avatar/seresmagicos/heroina.png';
+import pirata from '../avatar/seresmagicos/pirata.png';
+import piratinha from '../avatar/seresmagicos/piratinha.png';
+import princesa from '../avatar/seresmagicos/princesa.png';
+import principe from '../avatar/seresmagicos/principe.png';
+import vampira from '../avatar/seresmagicos/vampira.png';
+import vampiro from '../avatar/seresmagicos/vampiro.png';
+import zumbi from '../avatar/seresmagicos/zumbi.png';
+import zumbia from '../avatar/seresmagicos/zumbia.png';
+
+const avatares = {
+  cachorro, gato, esquilo, elefante, macaco, panda, trex, tigre, leao,
+  pterodactilo, triceratops, unicornio, menina1, menina2, menino1, menino2,
+  bruxa, bruxo, fada, fado, heroi, heroina, pirata, piratinha,
+  princesa, principe, vampira, vampiro, zumbi, zumbia
+};
 
 function Dashboard() {
   const navigate = useNavigate();
-  const [avatarSelecionado] = useState('avatar1');
+  const [avatarSelecionado, setAvatarSelecionado] = useState(null);
+
+  useEffect(() => {
+    // Carrega o avatar salvo do localStorage
+    const avatarSalvo = localStorage.getItem('avatarSelecionado');
+    if (avatarSalvo) {
+      setAvatarSelecionado(avatarSalvo);
+    }
+  }, []);
 
   /* ─── Estilos ────────────────────────────────────────────────────────────── */
   const estiloContainer = {
@@ -90,7 +134,7 @@ function Dashboard() {
         }}>
           Educação divertida, inclusiva e acessível
         </p>
-        {avatarSelecionado && (
+        {avatarSelecionado && avatares[avatarSelecionado] && (
           <div style={{ marginTop: '1rem' }}>
             <img 
               src={avatares[avatarSelecionado]}
