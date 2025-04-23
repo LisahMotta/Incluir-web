@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import fundo from '../assets/fundo.png';
 import cachorro from '../avatar/animais/cachorro.png';
 import gato from '../avatar/animais/gato.png';
 import esquilo from '../avatar/animais/esquilo.png';
@@ -50,15 +51,51 @@ function Dashboard() {
     }
   }, []);
 
+  /* ─── Fundo fixo ──────────────────────────────────────────────────────── */
+  const estiloFundo = {
+    position: 'fixed',
+    inset: 0,
+    backgroundImage: `url(${fundo})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    backgroundRepeat: 'no-repeat',
+    zIndex: -1
+  };
+
   /* ─── Estilos ────────────────────────────────────────────────────────────── */
   const estiloContainer = {
     minHeight: '100vh',
+    width: '100%',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
     padding: '2rem',
-    backgroundColor: '#f5f5f5'
+    boxSizing: 'border-box',
+    position: 'relative'
+  };
+
+  const estiloHeader = {
+    textAlign: 'center',
+    marginBottom: '4rem',
+    maxWidth: '800px',
+    width: '100%'
+  };
+
+  const estiloTitulo = {
+    fontSize: '3rem',
+    color: '#fff',
+    marginBottom: '1rem',
+    fontWeight: 'bold',
+    textShadow: '0 2px 4px rgba(0,0,0,0.3)'
+  };
+
+  const estiloSubtitulo = {
+    fontSize: '1.5rem',
+    color: '#fff',
+    fontWeight: 'bold',
+    marginBottom: '2rem',
+    textShadow: '0 2px 4px rgba(0,0,0,0.3)'
   };
 
   const estiloGrid = {
@@ -70,7 +107,7 @@ function Dashboard() {
   };
 
   const estiloCard = {
-    backgroundColor: 'white',
+    backgroundColor: 'rgba(255, 255, 255, 0.9)',
     borderRadius: '20px',
     padding: '2rem',
     display: 'flex',
@@ -78,10 +115,10 @@ function Dashboard() {
     alignItems: 'center',
     cursor: 'pointer',
     transition: 'all 0.3s ease',
-    boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
+    boxShadow: '0 4px 8px rgba(0,0,0,0.2)',
     '&:hover': {
       transform: 'translateY(-5px)',
-      boxShadow: '0 6px 12px rgba(0,0,0,0.15)'
+      boxShadow: '0 6px 12px rgba(0,0,0,0.3)'
     }
   };
 
@@ -97,88 +134,73 @@ function Dashboard() {
     textAlign: 'center'
   };
 
-  const estiloTitulo = {
-    color: '#333',
-    marginBottom: '1rem'
-  };
-
   const estiloAvatar = {
-    width: '100px',
-    height: '100px',
+    width: '120px',
+    height: '120px',
     borderRadius: '50%',
     border: '4px solid #FF7F32',
     marginBottom: '1rem',
-    objectFit: 'cover'
+    objectFit: 'cover',
+    boxShadow: '0 4px 8px rgba(0,0,0,0.2)'
   };
 
   return (
-    <div style={estiloContainer}>
-      <div style={{
-        textAlign: 'center',
-        marginBottom: '3rem',
-        maxWidth: '800px',
-        width: '100%'
-      }}>
-        <h1 style={{
-          ...estiloTitulo,
-          fontSize: '2.8rem',
-          marginBottom: '1rem'
-        }}>
-          Seja Bem-vindo!
-        </h1>
-        <p style={{
-          fontSize: '1.5rem',
-          color: '#333',
-          fontWeight: 'bold',
-          marginBottom: '0.5rem'
-        }}>
-          Educação divertida, inclusiva e acessível
-        </p>
-        {avatarSelecionado && avatares[avatarSelecionado] && (
-          <div style={{ marginTop: '1rem' }}>
-            <img 
-              src={avatares[avatarSelecionado]}
-              alt="Avatar selecionado"
-              style={estiloAvatar}
-            />
+    <>
+      <div style={estiloFundo} />
+      <div style={estiloContainer}>
+        <div style={estiloHeader}>
+          <h1 style={estiloTitulo}>
+            Seja Bem-vindo!
+          </h1>
+          <p style={estiloSubtitulo}>
+            Educação divertida, inclusiva e acessível
+          </p>
+          {avatarSelecionado && avatares[avatarSelecionado] && (
+            <div>
+              <img 
+                src={avatares[avatarSelecionado]}
+                alt="Avatar selecionado"
+                style={estiloAvatar}
+              />
+            </div>
+          )}
+        </div>
+        
+        <div style={estiloGrid}>
+          <div 
+            style={estiloCard}
+            onClick={() => navigate('/leitura')}
+          >
+            <div style={estiloIcone}>📚</div>
+            <div style={estiloTexto}>Leitura</div>
           </div>
-        )}
-      </div>
-      
-      <div style={estiloGrid}>
-        <div 
-          style={estiloCard}
-          onClick={() => navigate('/leitura')}
-        >
-          <div style={estiloIcone}>📚</div>
-          <div style={estiloTexto}>Leitura</div>
-        </div>
 
-        <div 
-          style={estiloCard}
-          onClick={() => navigate('/ranking')}
-        >
-          <div style={estiloIcone}>🏆</div>
-          <div style={estiloTexto}>Ranking</div>
-        </div>
+          <div 
+            style={estiloCard}
+            onClick={() => navigate('/ranking')}
+          >
+            <div style={estiloIcone}>🏆</div>
+            <div style={estiloTexto}>Ranking</div>
+          </div>
 
-        <div 
-          style={estiloCard}
-          onClick={() => navigate('/avatar')}
-        >
-          <div style={estiloIcone}>👤</div>
-          <div style={estiloTexto}>Criar Avatar</div>
-        </div>
+          <div 
+            style={estiloCard}
+            onClick={() => navigate('/avatar')}
+          >
+            <div style={estiloIcone}>👤</div>
+            <div style={estiloTexto}>Criar Avatar</div>
+          </div>
 
-        <div 
-          style={estiloCard}
-          onClick={() => navigate('/')}
-        >
-          <div style={estiloIcone}>🏠</div>
-          <div style={estiloTexto}>Início</div>
+          <div 
+            style={estiloCard}
+            onClick={() => navigate('/')}
+          >
+            <div style={estiloIcone}>🏠</div>
+            <div style={estiloTexto}>Início</div>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
